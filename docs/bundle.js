@@ -110,13 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/LinkedList.ts":
+/*!***************************!*\
+  !*** ./src/LinkedList.ts ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst ListNode_1 = __importDefault(__webpack_require__(/*! ./ListNode */ \"./src/ListNode.ts\"));\nclass LinkedList {\n    constructor() {\n        this.headNode = null;\n    }\n    append(value) {\n        this.headNode !== null\n            ? (this.headNode.nextNode = new ListNode_1.default(value))\n            : (this.headNode = new ListNode_1.default(value));\n    }\n    prepend(value) {\n        const newNode = new ListNode_1.default(value);\n        newNode.nextNode = this.headNode;\n        this.headNode = newNode;\n    }\n    size() {\n        let currentNode = this.headNode;\n        let count = 0;\n        while (currentNode !== null) {\n            count++;\n            currentNode = currentNode.nextNode;\n        }\n        return count;\n    }\n    head() {\n        return this.headNode;\n    }\n    tail() {\n        let currentNode = this.headNode;\n        let tailNode = this.headNode;\n        while (currentNode !== null) {\n            tailNode = currentNode;\n            currentNode = currentNode.nextNode;\n        }\n        return tailNode;\n    }\n    at(index) {\n        let nodeIndex = 0;\n        let currentNode = this.headNode;\n        while (nodeIndex !== index && currentNode !== null) {\n            nodeIndex++;\n            currentNode = currentNode === null || currentNode === void 0 ? void 0 : currentNode.nextNode;\n        }\n        return currentNode;\n    }\n    pop() {\n        this.at(this.size() - 2).nextNode = null;\n    }\n    contains(value) {\n        //returns boolean for if item is in the list\n    }\n    find(value) {\n        //returns the index of the value passed || returns false\n    }\n    toString() {\n        let currentNode = this.headNode;\n        let result = \"\";\n        while (currentNode !== null) {\n            result += `(${currentNode === null || currentNode === void 0 ? void 0 : currentNode.value.toString()}) --> `;\n            currentNode = currentNode.nextNode;\n        }\n        return result.substring(0, result.length - 5);\n    }\n    insertAt(value, index) {\n        //iserts a new node with value at index\n    }\n    removeAt(index) {\n        //removes node at given index\n    }\n}\nexports[\"default\"] = LinkedList;\n\n\n//# sourceURL=webpack://linked-list/./src/LinkedList.ts?");
+
+/***/ }),
+
+/***/ "./src/ListNode.ts":
+/*!*************************!*\
+  !*** ./src/ListNode.ts ***!
+  \*************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nclass ListNode {\n    constructor(value) {\n        this.value = null;\n        this.nextNode = null;\n        this.value = value;\n        this.nextNode;\n    }\n}\nexports[\"default\"] = ListNode;\n\n\n//# sourceURL=webpack://linked-list/./src/ListNode.ts?");
+
+/***/ }),
+
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\n__webpack_require__(/*! ./sass/style.scss */ \"./src/sass/style.scss\");\n\n\n//# sourceURL=webpack://linked-list/./src/index.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst LinkedList_1 = __importDefault(__webpack_require__(/*! ./LinkedList */ \"./src/LinkedList.ts\"));\n__webpack_require__(/*! ./sass/style.scss */ \"./src/sass/style.scss\");\nconst list = new LinkedList_1.default();\nlist.append(\"two\");\nlist.append(\"three\");\nlist.prepend(\"one\");\nlist.prepend(\"zero\");\nconsole.log(list.head());\nconsole.log(list.toString());\nconsole.log(list.size());\nconsole.log(list.tail());\nconsole.log(list.at(3));\nlist.pop();\nconsole.log(list.toString());\n\n\n//# sourceURL=webpack://linked-list/./src/index.ts?");
 
 /***/ })
 
@@ -140,7 +160,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\n__we
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -196,7 +216,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\n__we
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
 /******/ 	
 /******/ })()
