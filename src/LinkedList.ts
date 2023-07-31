@@ -8,9 +8,11 @@ class LinkedList {
   private headNode: ListNode | null;
 
   append(value: any) {
-    this.headNode !== null
-      ? (this.headNode.nextNode = new ListNode(value))
-      : (this.headNode = new ListNode(value));
+    const newNode = new ListNode(value);
+
+    this.headNode === null
+      ? (this.headNode = newNode)
+      : (this.tail()!.nextNode = newNode);
   }
 
   prepend(value: any) {
@@ -62,11 +64,24 @@ class LinkedList {
   }
 
   contains(value: any) {
-    //returns boolean for if item is in the list
+    let currentNode = this.headNode;
+    while (currentNode !== null) {
+      if (currentNode.value === value) return true;
+      currentNode = currentNode.nextNode;
+    }
+    return false;
   }
 
   find(value: any) {
-    //returns the index of the value passed || returns false
+    let currentNode = this.headNode;
+    let index = 0;
+
+    while (currentNode !== null) {
+      if (currentNode.value === value) return index;
+      index++;
+      currentNode = currentNode.nextNode;
+    }
+    return null;
   }
 
   toString() {
@@ -81,11 +96,45 @@ class LinkedList {
   }
 
   insertAt(value: any, index: number) {
-    //iserts a new node with value at index
+    if (index >= this.size()) {
+      this.append(value);
+      return;
+    }
+
+    const newNode = new ListNode(value);
+    let lastNode: ListNode | null = null;
+    let currentNode = this.headNode;
+
+    for (let i = 0; i <= index; i++) {
+      if (i === index) {
+        newNode.nextNode = currentNode;
+        i === 0 ? (this.headNode = newNode) : (lastNode!.nextNode = newNode);
+        return;
+      }
+      lastNode = currentNode;
+      currentNode = currentNode!.nextNode;
+    }
   }
 
   removeAt(index: number) {
-    //removes node at given index
+    if (index >= this.size()) {
+      return;
+    }
+
+    let currentNode = this.headNode;
+    let lastNode: ListNode | null = null;
+
+    for (let i = 0; i < this.size(); i++) {
+      if (index === i) {
+        if (lastNode === null) {
+          this.headNode = this.headNode!.nextNode;
+        } else {
+          lastNode.nextNode = currentNode!.nextNode;
+        }
+      }
+      lastNode = currentNode;
+      currentNode = currentNode!.nextNode;
+    }
   }
 }
 

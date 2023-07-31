@@ -7,6 +7,9 @@ list.append("two");
 
 list.append("three");
 
+list.append("four");
+
+
 list.prepend("one");
 
 list.prepend("zero");
@@ -24,3 +27,18 @@ console.log(list.at(3));
 list.pop();
 
 console.log(list.toString());
+
+console.log(list.contains("two"));
+
+console.log(list.contains("blue"));
+
+console.log(list.find("one"))
+
+list.insertAt("new", 3);
+
+console.log(list.toString());
+
+list.removeAt(3);
+
+console.log(list.toString());
+
