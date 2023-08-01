@@ -1,5 +1,116 @@
+$black: #000000ff;
+$blue: #14213dff;
+$orange: #fca311ff;
+$grey: #e5e5e5ff;
+$white: #ffffffff;
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin pill-shape {
+  @include font-inherit;
+  border: none;
+  border-radius: 400px;
+  height: 2rem;
+  padding: 0 1rem;
+}
+
+@mixin font-inherit {
+  font-size: inherit;
+  font-family: inherit;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  @include flex-col;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  justify-content: space-between;
+  background-color: $black;
+  color: $white;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+header,
+main,
+footer {
+  @include flex-row;
+  padding: 0 1rem;
+}
+
+header {
+  align-items: center;
+  background-color: $blue;
+  color: $grey;
+  height: 10vh;
+}
+
+main {
+  flex-direction: column;
+  section {
+    @include flex-row;
+    
+    &.list-display {
+      height: 10vh;
+      align-items: center;
+    }
+
+    &.inputs {
+      @include flex-row;
+      max-height: 70vh;
+      flex-wrap: wrap;
+      height: 70vh;
+      width: calc(100vw - 2rem);
+      overflow-x: hidden;
+      overflow-y: auto;
+      gap: 0.5rem;
+    }
+
+    form {
+      @include flex-col;
+      flex: 1;
+      min-height: 10vh;
+      min-width: 200px;
+
+      fieldset {
+        @include flex-col;
+        flex: 1;
+        padding: 0 0.5rem;
+        border-radius: 1rem;
+        border: 3px solid $orange;
+        align-items: center;
+        justify-content: space-around;
+        background-color: $blue;
+
+        input {
+          @include pill-shape;
+          max-width: 200px;
+
+          &[type="submit"] {
+            background-color: $black;
+            color: $white;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  align-items: center;
+  height: 10vh;
 }

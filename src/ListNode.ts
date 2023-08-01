@@ -6,6 +6,10 @@ class ListNode {
 
   public value: any = null;
   public nextNode: ListNode | null = null;
+
+  toString() {
+    return this.value.toString();
+  }
 }
 
 export default ListNode;

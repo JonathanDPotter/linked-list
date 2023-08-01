@@ -60,7 +60,7 @@ class LinkedList {
   }
 
   pop() {
-    this.at(this.size() - 2)!.nextNode = null;
+    this.size() === 0 ? null : this.removeAt(this.size() - 1);
   }
 
   contains(value: any) {
