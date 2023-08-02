@@ -27,10 +27,32 @@ $white: #ffffffff;
   font-family: inherit;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @include pill-shape;
+  background: $blue;
+}
+
+::-webkit-scrollbar-thumb {
+  @include pill-shape;
+  background-color: $orange;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($orange, 10);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  &:focus {
+    outline: 3px dotted $orange;
+  }
 }
 
 body {
@@ -62,10 +84,18 @@ main {
   flex-direction: column;
   section {
     @include flex-row;
-    
-    &.list-display {
+
+    &.list-container {
       height: 10vh;
       align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+
+      h2 {
+        font-size: 2rem;
+      }
     }
 
     &.inputs {
@@ -88,21 +118,44 @@ main {
       fieldset {
         @include flex-col;
         flex: 1;
-        padding: 0 0.5rem;
+        padding: 0.5rem;
         border-radius: 1rem;
         border: 3px solid $orange;
         align-items: center;
         justify-content: space-around;
         background-color: $blue;
+        gap: 0.5rem;
+
+        label,
+        .label {
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
 
         input {
           @include pill-shape;
           max-width: 200px;
+          background-color: $grey;
+          outline: none;
 
           &[type="submit"] {
             background-color: $black;
             color: $white;
             font-weight: 600;
+          }
+        }
+
+        p {
+          height: 2rem;
+          line-height: 2rem;
+          @include pill-shape;
+          color: $black;
+          background-color: $grey;
+          border: 1px solid $orange;
+
+          &:empty {
+            background-color: $blue;
+            border: none;
           }
         }
       }

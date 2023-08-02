@@ -11,88 +11,128 @@
       <h1>Linked List</h1>
     </header>
     <main>
-      <section class="list-display">
+      <section class="list-container">
         <h2 id="list-display"></h2>
       </section>
       <section class="inputs">
-        <form id="append-form">
+        <form
+          id="append-form"
+          title="append() is a LinkedList method&#10;that adds a ListNode to the end&#10; of the list"
+        >
           <fieldset>
-            <label for="append">Append</label>
+            <label for="append">append()</label>
             <input type="text" name="append" id="append" />
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
-        <form id="prepend-form">
+        <form
+          id="prepend-form"
+          title="prepend() is a LindedList method&#10;that adds a node to the beginning&#10;of the list"
+        >
           <fieldset>
-            <label for="prepend">Prepend</label>
+            <label for="prepend">prepend()</label>
             <input type="text" name="prepend" id="prepend" />
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
-        <form id="size-form">
+        <form
+          id="size-form"
+          title="size() is a LinkdedList method&#10;that returns the number of nodes&#10;in the list"
+        >
           <fieldset>
-            <label for="size">Get size</label>
+            <label for="size">size()</label>
             <input type="submit" value="Submit" />
             <p id="size-display"></p>
           </fieldset>
         </form>
-        <form id="head-form">
+        <form
+          id="head-form"
+          title="head() is a LinkdedList method&#10;that returns the first&#10;node in the list"
+        >
           <fieldset>
-            <label for="head">Get head</label>
+            <label for="head">head()</label>
             <input type="submit" value="Submit" />
             <p id="head-display"></p>
           </fieldset>
         </form>
-        <form id="tail-form">
+        <form
+          id="tail-form"
+          title="tail() is a LinkdedList method&#10;that returns the last node&#10;in the list"
+        >
           <fieldset>
-            <label for="tail">Get Tail</label>
+            <label for="tail">tail()</label>
             <input type="submit" value="Submit" />
             <p id="tail-display"></p>
           </fieldset>
         </form>
-        <form id="at-form">
+        <form
+          id="at-form"
+          title="at() is a LinkedList method&#10;that returns the node at&#10;the supplied index"
+        >
           <fieldset>
-            <label for="at">Get Value At</label>
-            <input type="number" name="at" id="at" />
+            <label for="at">at()</label>
+            <input type="number" name="at" id="at" min="0" max="1000" />
             <input type="submit" value="Submit" />
             <p id="at-display"></p>
           </fieldset>
         </form>
-        <form id="pop-form">
+        <form
+          id="pop-form"
+          title="pop() is a LinkedList method&#10;that removes the last node&#10;from the list"
+        >
           <fieldset>
-            <label for="pop">Pop (remove last value)</label>
+            <label for="pop">pop()</label>
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
-        <form id="contains-form">
+        <form
+          id="contains-form"
+          title="contains is a LinkedList method&#10;that returns true if a value&#10;is contained in the list and &#10;false if it is not"
+        >
           <fieldset>
-            <label for="contains">Contains</label>
+            <label for="contains">contains()</label>
             <input type="text" name="contains" id="contains" />
             <input type="submit" value="Submit" />
             <p id="contains-display"></p>
           </fieldset>
         </form>
-        <form id="find-form">
+        <form
+          id="find-form"
+          title="find() is a LinkedList method&#10;that returns the index of the&#10;supplied value, or null if it is&#10;not in the list"
+        >
           <fieldset>
-            <label for="find">Find</label>
+            <label for="find">find()</label>
             <input type="text" name="find" id="find" />
             <input type="submit" value="Submit" />
             <p id="find-display"></p>
           </fieldset>
         </form>
-        <form id="insert-form">
+        <form
+          id="insert-form"
+          title="insertAt() is a LinkedList method&#10;that inserts a supplid value into&#10;the list at a supplied index"
+        >
           <fieldset>
-            <label for="insert">Insert</label>
+            <p class="label">insertAt()</p>
+            <label for="insert">insert</label>
             <input type="text" name="insert" id="insert" />
             <label for="insert-at">At</label>
-            <input type="number" name="insert-at" id="insert-at" />
+            <input
+              type="number"
+              name="insert-at"
+              id="insert-at"
+              min="0"
+              max="1000"
+            />
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
-        <form id="remove-form">
+        <form
+          id="remove-form"
+          title="remove() is a LinkedList method&#10;that removes a node from the&#10;list at a supplied index"
+        >
           <fieldset>
-            <label for="remove">Remove</label>
-            <input type="number" name="remove" id="remove" />
+            <label for="remove">remove()</label>
+            <input type="number" name="remove" id="remove" min="0" max="1000" />
             <input type="submit" value="Submit" />
           </fieldset>
         </form>

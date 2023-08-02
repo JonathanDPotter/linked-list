@@ -39,16 +39,18 @@ const removeForm = document.getElementById("remove-form") as HTMLFormElement;
 // apply form event listeners
 appendForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  list.append(appendForm["append"].value);
-  appendForm["append"].value = "";
+  const appendInput = appendForm["append"] as unknown as HTMLInputElement;
+  list.append(appendInput.value);
   listDisplay!.innerText = list.toString();
+  appendInput.value = "";
 });
 
 prependForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  list.prepend(prependForm["prepend"].value);
-  prependForm["prepend"].value = "";
+  const prependInput = prependForm["prepend"] as unknown as HTMLInputElement;
+  list.prepend(prependInput.value);
   listDisplay!.innerText = list.toString();
+  prependInput.value = "";
 });
 
 sizeForm?.addEventListener("submit", (event) => {
@@ -70,11 +72,11 @@ tailForm?.addEventListener("submit", (event) => {
 
 atForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const index = parseInt(atForm["at"].value);
-  atDisplay.textContent = !!list.at(index)
-    ? list.at(index)?.toString()
+  const atInput = atForm["at"] as HTMLInputElement;
+  atDisplay.textContent = !!list.at(parseInt(atInput.value))
+    ? list.at(parseInt(atInput.value))?.toString()
     : "null";
-  atForm["at"].value = "";
+  atInput.value = "";
 });
 
 popForm?.addEventListener("submit", (event) => {
@@ -85,32 +87,39 @@ popForm?.addEventListener("submit", (event) => {
 
 containsForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const { value } = containsForm["contains"];
-  containsDisplay.textContent = list.contains(value).toString();
-  containsForm["contains"].value = "";
+  const containsInput = containsForm["contains"] as unknown as HTMLInputElement;
+  containsDisplay.textContent = list.contains(containsInput.value).toString();
+  containsInput.value = "";
 });
 
 findForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const { value } = findForm["find"];
+  const findInput = findForm["find"] as HTMLInputElement;
   findDisplay.textContent =
-    list.find(value) !== null ? list.find(value)?.toString() : "null";
+    list.find(findInput.value) !== null
+      ? (list.find(findInput.value)?.toString() as string)
+      : "null";
+  findInput.value = "";
 });
 
 insertForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const { value } = insertForm["insert"];
-  const at = parseInt(insertForm["insert-at"].value);
-  list.insertAt(value, at);
+  const insertInput = insertForm["insert"] as HTMLInputElement;
+  const atInput = insertForm["insert-at"] as HTMLInputElement;
+  list.insertAt(insertInput.value, parseInt(atInput.value));
   listDisplay.innerText = list.toString();
-  insertForm["insert"].value = "";
-  insertForm["insert-at"].value = "";
+  insertInput.value = "";
+  atInput.value = "";
 });
 
 removeForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const { value } = removeForm["remove"];
-  list.removeAt(parseInt(value));
+  const removeInput = removeForm["remove"] as unknown as HTMLInputElement;
+  list.removeAt(parseInt(removeInput.value));
   listDisplay.textContent = list.toString();
-  removeForm["remove"].value = "";
+  removeInput.value = "";
 });
+
+const paragraphs = Array.from(document.getElementsByTagName("p"));
+
+
