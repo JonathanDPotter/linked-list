@@ -7,7 +7,8 @@ class ListNode {
   public value: any = null;
   public nextNode: ListNode | null = null;
 
-  toString() {
+  toString(): string {
+    // method returns the value of the listNode as a string
     return this.value.toString();
   }
 }

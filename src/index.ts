@@ -1,7 +1,9 @@
 import "./sass/style.scss";
 import LinkedList from "./LinkedList";
 
+// create instance of LinkedList to display
 const list = new LinkedList();
+
 // get dom elements
 const listDisplay = document.getElementById(
   "list-display"
@@ -35,6 +37,8 @@ const findDisplay = document.getElementById(
 ) as HTMLParagraphElement;
 const insertForm = document.getElementById("insert-form") as HTMLFormElement;
 const removeForm = document.getElementById("remove-form") as HTMLFormElement;
+const aboutButton = document.getElementsByTagName("button")[0];
+const aboutDialog = document.getElementsByTagName("dialog")[0];
 
 // apply form event listeners
 appendForm?.addEventListener("submit", (event) => {
@@ -61,21 +65,22 @@ sizeForm?.addEventListener("submit", (event) => {
 headForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   headDisplay.textContent =
-    list.head() !== null ? list.head()?.toString() : "null";
+    list.head() !== null ? list.head()!.toString() : "null";
 });
 
 tailForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   tailDisplay.textContent =
-    list.tail() !== null ? list.tail()?.toString() : "null";
+    list.tail() !== null ? list.tail()!.toString() : "null";
 });
 
 atForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const atInput = atForm["at"] as HTMLInputElement;
-  atDisplay.textContent = !!list.at(parseInt(atInput.value))
-    ? list.at(parseInt(atInput.value))?.toString()
-    : "null";
+  atDisplay.textContent =
+    list.at(parseInt(atInput.value)) !== null
+      ? list.at(parseInt(atInput.value))!.toString()
+      : "null";
   atInput.value = "";
 });
 
@@ -120,6 +125,4 @@ removeForm?.addEventListener("submit", (event) => {
   removeInput.value = "";
 });
 
-const paragraphs = Array.from(document.getElementsByTagName("p"));
-
-
+aboutButton.addEventListener("click", () => aboutDialog.showModal());

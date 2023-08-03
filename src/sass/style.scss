@@ -28,7 +28,7 @@ $white: #ffffffff;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -86,12 +86,20 @@ main {
     @include flex-row;
 
     &.list-container {
+      border-radius: 0.5rem;
+      border: 3px solid $orange;
+      padding: 0 1rem;
+      margin-bottom: 0.5rem;
       height: 10vh;
       align-items: center;
       overflow-x: auto;
       overflow-y: hidden;
       flex-wrap: nowrap;
       white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
 
       h2 {
         font-size: 2rem;
@@ -142,6 +150,7 @@ main {
             background-color: $black;
             color: $white;
             font-weight: 600;
+            cursor: pointer;
           }
         }
 
@@ -165,5 +174,42 @@ main {
 
 footer {
   align-items: center;
+  justify-content: space-between;
   height: 10vh;
+
+  button {
+    @include pill-shape;
+    cursor: pointer;
+    background-color: $blue;
+    color: $grey;
+    padding: 0 2rem;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+dialog[open] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $blue;
+  color: $grey;
+  height: 90%;
+  width: 90%;
+
+  a {
+    color: inherit;
+  }
+
+  form {
+    width: 100%;
+    
+    input {
+      @include pill-shape;
+      background-color: $orange;
+      margin: 1rem auto;
+    }
+  }
+
 }
