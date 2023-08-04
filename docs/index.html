@@ -148,75 +148,88 @@
       >
     </footer>
     <dialog>
-      <h2>Linked List</h2>
-      <h3>About</h3>
-      <p>
-        This app is a demonstration of my implementation of the Linked-List data
-        structure in TypeScript.
-      </p>
-      <h3>Technologies Used</h3>
-      <p>
-        This app is built with HTML, SASS, TypeScript and Webpack. The
-        Linked-List is implemented with a JavaScript class, which contains
-        several methods that control the storage of ListNode class objects and
-        the links between the objects.
-      </p>
-      <p>
-        ListNode objects have two properties- value and nextNode. The value
-        propery can be a variable of any type and the NextNode property is a
-        reference to the next ListNode in the list. The only class method is
-        toString, which returns the value property as a string.
-      </p>
-      <p>
-        The LinkdedList class has one property and eleven methods. The headNode
-        property contains a reference to the first ListNode object in the list.
-        The headNode property initializes as null. The eleven methods are as
-        follows:
-      </p>
-      <ul>
-        <li>
-          append- adds a ListNode with the supplied value to the end of the list
-        </li>
-        <li>
-          prepend- adds a ListNode with the supplied value to the beginning of
-          the list
-        </li>
-        <li>size- returns the number of elements in the list</li>
-        <li>head- returns the first element as a ListNode object</li>
-        <li>tail- returns the last element as a ListNode object</li>
-        <li>
-          at- returns the element at the supplied index as a ListNode object
-        </li>
-        <li>pop- removes the last element from the list</li>
-        <li>
-          contains- returns true if the supplied value matches the value
-          property of one of the ListNodes in the list and false if it doesn't
-        </li>
-        <li>
-          find- returns the index of a value if it matches the value property of
-          one of the ListNodes, and null if it does not
-        </li>
-        <li>
-          insertAt- inserts a ListNode with the supplied value to the list at
-          the supplied index, moving the ListNode currently at that index and
-          all ListNodes at higher indices to one index higher
-        </li>
-        <li>remove- removes the ListNode at the supplied index</li>
-      </ul>
-      <p>
-        The code can be viewed at the GitHub repo
-        <a href="https://github.com/JonathanDPotter/linked-list">here</a>.
-      </p>
-      <h3>Functionality</h3>
-      <p>
-        This app displays the current state of the Linked List on the top of the
-        page and supplies inputs for performing actions using the methods of the
-        class below. The user can enter text into the inputs and manipulate a
-        list to see a visual represention of how the data structure works.
-      </p>
-      <form type="dialog">
-        <input type="submit" value="Close" />
-      </form>
+      <div class="wrapper">
+        <h2>Linked List</h2>
+        <h3>About</h3>
+        <p>
+          This app is a demonstration of my implementation of the Linked-List
+          data structure in TypeScript.
+        </p>
+        <p>
+          The code can be viewed at the GitHub repo
+          <a href="https://github.com/JonathanDPotter/linked-list">here</a>.
+        </p>
+        <h3>Technologies Used</h3>
+        <p>
+          This app is built with HTML, SASS, TypeScript and Webpack. The
+          Linked-List is implemented with a JavaScript class, which contains
+          several methods that control the storage of ListNode class objects and
+          the links between the objects.
+        </p>
+        <p>
+          ListNode objects have two properties- value and nextNode. The value
+          propery can be a variable of any type and the NextNode property is a
+          reference to the next ListNode in the list. The only class method is
+          toString, which returns the value property as a string.
+        </p>
+        <p>
+          The LinkdedList class has one property and eleven methods. The
+          headNode property contains a reference to the first ListNode object in
+          the list. The headNode property initializes as null. The eleven
+          methods are as follows:
+        </p>
+        <ul>
+          <li>
+            <strong>append(<value)</strong> adds a ListNode with the supplied
+            value to the end of the list
+          </li>
+          <li>
+            prepend() adds a ListNode with the supplied value to the beginning
+            of the list
+          </li>
+          <li>
+            <strong>size()</strong> returns the number of elements in the list
+          </li>
+          <li>
+            <strong>head()</strong> returns the first element as a ListNode
+            object
+          </li>
+          <li>tail() returns the last element as a ListNode object</li>
+          <li>
+            at- returns the element at the supplied index as a ListNode object
+          </li>
+          <li><strong>pop()</strong> removes the last element from the list</li>
+          <li>
+            <strong>contains()</strong> returns true if the supplied value
+            matches the value property of one of the ListNodes in the list and
+            false if it doesn't
+          </li>
+          <li>
+            <strong>find()</strong> returns the index of a value if it matches
+            the value property of one of the ListNodes, and null if it does not
+          </li>
+          <li>
+            <strong>insertAt()</strong> inserts a ListNode with the supplied
+            value to the list at the supplied index, moving the ListNode
+            currently at that index and all ListNodes at higher indices to one
+            index higher
+          </li>
+          <li>
+            <strong>remove()</strong> removes the ListNode at the supplied index
+          </li>
+        </ul>
+        <h3>Functionality</h3>
+        <p>
+          This app displays the current state of the Linked List on the top of
+          the page and supplies inputs for performing actions using the methods
+          of the class below. The user can enter text into the inputs and
+          manipulate a list to see a visual represention of how the data
+          structure works.
+        </p>
+        <form type="dialog">
+          <input type="submit" value="Close" />
+        </form>
+      </div>
     </dialog>
   </body>
 </html>

@@ -27,6 +27,20 @@ $white: #ffffffff;
   font-family: inherit;
 }
 
+@mixin anchor {
+  a {
+    color: inherit;
+    &:focus {
+      outline: none;
+      text-decoration-color: $orange;
+    }
+
+    &:hover {
+      text-decoration-color: $orange;
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -173,6 +187,7 @@ main {
 }
 
 footer {
+  @include anchor;
   align-items: center;
   justify-content: space-between;
   height: 10vh;
@@ -189,27 +204,62 @@ footer {
 }
 
 dialog[open] {
+  @include anchor;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: $blue;
+  background-color: $black;
   color: $grey;
   height: 90%;
   width: 90%;
+  max-width: 500px;
+  border-radius: 1rem;
+  border: 2px solid $orange;
+  padding: 0.5rem;
 
-  a {
-    color: inherit;
+  &::backdrop {
+    background-color: transparentize($black, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  div.wrapper {
+    @include flex-col;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: auto;
+  }
+
+  p {
+    text-indent: 2ch;
+  }
+
+  p,
+  ul {
+    max-width: 400px;
+  }
+
+  li {
+    background-color: $blue;
+    margin: 1rem 0;
+    list-style-type: none;
+    border: 1px solid $orange;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
   }
 
   form {
-    width: 100%;
-    
+    flex: 1;
+
     input {
       @include pill-shape;
       background-color: $orange;
       margin: 1rem auto;
     }
   }
-
 }
