@@ -34,4 +34,4 @@ The LinkdedList class has one property and eleven methods. The headNode property
 
 ## Functionality
 
-This app displays the current state of the Linked List on the top of the page and supplies inputs for performing actions using the methods of the class below. The user can enter text into the inputs and manipulate a list to see a visual represention of how the data structure works.
+This app displays the current state of the Linked List on the top of the page and supplies inputs for performing actions using the methods of the class below. The user can enter text into the inputs and manipulate a list to see a visual represention of how the data structure works. A live deployment of the app is hosted on GitHub Pages [here](https://jonathandpotter.github.io/linked-list/).
